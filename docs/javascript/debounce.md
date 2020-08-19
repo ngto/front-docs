@@ -1,0 +1,87 @@
+# 防抖
+
+- 原理：
+
+  > - 当持续触发一个事件时，在一定时间段内没有再去触发才执行一次（最后一次）,规定事件内再次触发事件则重新计时 **（防抖重点在于对定时器的清零）**
+  > - 距离上次执行需要间隔规定时间后才能再执行
+
+- 适用场景：
+
+  > - 防止按钮多次提交，只执行最后一次提交
+  > - 搜索框联想，只发送最火一次请求
+
+- 基础版
+  > 弊端：
+  >
+  > - this 指向的是 window
+  > - event 对象为 undefined
+
+```
+/**
+ * throttle 防抖
+ * @params func 执行的方法
+ * @params wait 单位时间
+ */
+function debounce (func, wait) {
+  let timeOut;
+  return function () {
+    if(timeOut) clearTimeout(timeOut);
+    timeOut = setTimeout(func, wait);
+  }
+}
+```
+
+- 完善版
+
+```
+/**
+ * throttle 防抖
+ * @params func 执行的方法
+ * @params wait 单位时间
+ */
+function debounce (func, wait) {
+  let timeOut
+  return function () {
+    let _this = this, args = arguments
+    if(timeOut) clearTimeout(timeOut)
+    timeOut = setTimeout(() => {
+      func.apply(_this, args)
+    }, wait);
+  }
+}
+```
+
+- 最终版
+
+```
+/**
+ * throttle 防抖
+ * @params func 执行的方法
+ * @params wait 单位时间
+ * @params immediate 立即执行 true/false
+ */
+function debounce (func, wait, immediate) {
+  let timeOut, result;
+  let debounced = function () {
+    let _this = this, args = arguments
+    if(timeOut) clearTimeout(timeOut)
+    if (immediate) {
+      let callNow = !timeOut
+      timeOut = setTimeout(() => {
+        timeOut = null
+      }, wait);
+      if (callNow) result = func.apply(_this, args)
+    } else {
+      timeOut = setTimeout(() => {
+        func.apply(_this, args);
+      }, wait);
+    }
+    return result
+  }
+  debounced.cancel = function () {
+    clearTimeout(timeOut)
+    timeOut = null
+  }
+  return debounced
+}
+```

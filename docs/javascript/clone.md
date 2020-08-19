@@ -1,0 +1,48 @@
+# 克隆
+
+- 原始类型按值传递
+- 对象类型按引用传递，与原对象共用一处内存，修改会使原对象也修改
+
+## 浅克隆
+
+- 基本类型没问题，引用类型会导致修改克隆对象的值，源对象的值也会改变
+
+## 深克隆
+
+### JSON.parse(JSON.stringify(obj))实现弊端
+
+- 1.如果 json 里面有时间对象，则序列化结果：时间对象=>字符串的形式；
+- 2.如果 json 里有 RegExp、Error 对象，则序列化的结果将只得到空对象 RegExp、Error => {}
+- 3.如果 json 里有 function,undefined，则序列化的结果会把 function,undefined 丢失
+- 4.如果 json 里有 NaN、Infinity 和-Infinity，则序列化的结果会变成 null
+- 5.如果 json 里有对象是由构造函数生成的，则序列化的结果会丢弃对象的 constructor
+- 利用 forin 循环原对象的属性递归调用，再判断类型，基本类型直接复制，引用类型开辟新的空间存储
+
+### 递归实现
+
+```
+// 获取对象类型
+function getType (obj) {
+  return Object.prototype.toString.call(obj).slice(8, -1)
+
+}
+function deepClone (obj) {
+  let type = getType(obj)
+  // 传入对象null 或者不是对象类型 直接返回自身
+  if (obj === null || typeof obj !== 'object') return obj
+  if (type === 'Array') return obj == "[]" ? new Array(...obj) : new Array().concat()
+  if (type === 'RegExp') return new RegExp(obj)
+  if (type === 'Date') return new Date(obj)
+  if (type === 'Map') return new Map(obj)
+  if (type === 'Set') return new Set(obj)
+
+  let newObj = Object.create(obj);
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] = deepClone(obj[key])
+    }
+  }
+  return newObj
+}
+
+```

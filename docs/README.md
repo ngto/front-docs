@@ -1,16 +1,15 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /hero.png
 tagline:
 actionText: 前往查看 →
-actionLink: /
+actionLink: /javascript/
 features:
-  - title: javascript
-    details: javascript
-  - title: css
-    details: css
-  - title: node.js
-    details: node.js
+  - title: 把握
+    details: 把握住今日，胜过两个明日。
+  - title: 当下
+    details: 活在当下
+  - title: 积累
+    details: 万石谷，粒粒积累；千丈布，根根织成。
 footer: 个人学习笔记
 ---
-

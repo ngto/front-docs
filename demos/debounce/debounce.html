@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>防抖</title>
+    <style>
+      .container {
+        width: 400px;
+        height: 300px;
+        background: yellowgreen;
+        margin: 200px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script src="./debounce1.js"></script>
+    <script>
+      let count = 0,
+        container = document.querySelector(".container")
+
+      function changText(e) {
+        console.log(e)
+        container.innerHTML = count++
+      }
+      container.onmousemove = debounce(changText, 1000, true)
+    </script>
+  </body>
+</html>

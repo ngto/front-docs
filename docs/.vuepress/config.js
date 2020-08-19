@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '笔记',
+  title: '前端笔记',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -49,7 +49,18 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'using-vue',
+            'debounce',
+            'throttle',
+            'clone'
+          ]
+        }
+      ],
+      '/css/': [
+        {
+          title: 'Css',
+          collapsable: false,
+          children: [
+            '',
           ]
         }
       ],
@@ -62,5 +73,10 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
+    '@vuepress/nprogress',
+    '@vuepress/active-header-links', {
+      sidebarLinkSelector: '.sidebar-link',
+      headerAnchorSelector: '.header-anchor'
+    }
   ]
 }
