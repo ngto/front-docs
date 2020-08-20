@@ -1,26 +1,27 @@
 const { description } = require('../../package')
-
+const navs = require('./navBar')
+const headers = require('./sidebar')
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '前端笔记',
+  title: 'NGTO前端笔记',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-
+  "base": '/',
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['link', { rel: 'icon', href: `./favicon.png` }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
-
   /**
    * Theme configuration, here is the default theme configuration for VuePress.
    *
@@ -34,39 +35,26 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Javascript',
-        link: '/javascript/',
+        text: '主页', link: '/'
       },
       {
-        text: 'Css',
-        link: '/css/'
+        text: '笔记', link: '/note/'
+      },
+      {
+        "text": "JavaScript",
+        "link": "/javascript/"
+      },
+      {
+        "text": "Http",
+        "link": "/http/"
+      },
+      {
+        "text": "Css",
+        "link": "/css/"
       }
     ],
-    sidebar: {
-      '/javascript/': [
-        {
-          title: 'Javascript',
-          collapsable: false,
-          children: [
-            '',
-            'debounce',
-            'throttle',
-            'clone'
-          ]
-        }
-      ],
-      '/css/': [
-        {
-          title: 'Css',
-          collapsable: false,
-          children: [
-            '',
-          ]
-        }
-      ],
-    }
+    sidebar: { ...headers }
   },
-
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */

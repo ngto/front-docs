@@ -1,1 +1,17 @@
-# css
+---
+tags:
+  - JavaScript
+  - DOM
+---
+
+# Config
+
+## foo
+
+- Type: `string`
+- Default: `/`
+
+## bar
+
+- Type: `string`
+- Default: `/`

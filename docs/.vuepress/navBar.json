@@ -1,0 +1,18 @@
+[
+	{
+		"text": "NOTE",
+		"link": "/note/"
+	},
+	{
+		"text": "JAVASCRIPT",
+		"link": "/javascript/"
+	},
+	{
+		"text": "HTTP",
+		"link": "/http/"
+	},
+	{
+		"text": "CSS",
+		"link": "/css/"
+	}
+]

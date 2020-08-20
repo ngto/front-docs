@@ -1,0 +1,46 @@
+{
+	"/note/": [
+		{
+			"title": "note",
+			"collapsable": true,
+			"children": [
+				"",
+				"1.md",
+				"learning.md"
+			]
+		}
+	],
+	"/javascript/": [
+		{
+			"title": "javascript",
+			"collapsable": true,
+			"children": [
+				"",
+				"1.md",
+				"11.md",
+				"2.md",
+				"3.md",
+				"4.md"
+			]
+		}
+	],
+	"/http/": [
+		{
+			"title": "http",
+			"collapsable": true,
+			"children": [
+				"",
+				"1.md"
+			]
+		}
+	],
+	"/css/": [
+		{
+			"title": "css",
+			"collapsable": true,
+			"children": [
+				""
+			]
+		}
+	]
+}
