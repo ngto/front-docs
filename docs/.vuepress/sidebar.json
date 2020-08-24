@@ -1,26 +1,11 @@
 {
-	"/note/": [
+	"/css/": [
 		{
-			"title": "note",
+			"title": "css",
 			"collapsable": true,
 			"children": [
 				"",
-				"1.md",
-				"learning.md"
-			]
-		}
-	],
-	"/javascript/": [
-		{
-			"title": "javascript",
-			"collapsable": true,
-			"children": [
-				"",
-				"1.md",
-				"11.md",
-				"2.md",
-				"3.md",
-				"4.md"
+				"1"
 			]
 		}
 	],
@@ -30,16 +15,43 @@
 			"collapsable": true,
 			"children": [
 				"",
-				"1.md"
+				"1"
 			]
 		}
 	],
-	"/css/": [
+	"/javascript/": [
 		{
-			"title": "css",
+			"title": "javascript",
 			"collapsable": true,
 			"children": [
-				""
+				"",
+				"6",
+				"7",
+				"8",
+				"9",
+				"10",
+				"11"
+			]
+		}
+	],
+	"/note/": [
+		{
+			"title": "note",
+			"collapsable": true,
+			"children": [
+				"",
+				"1",
+				"100"
+			]
+		}
+	],
+	"/tool/": [
+		{
+			"title": "tool",
+			"collapsable": true,
+			"children": [
+				"",
+				"Readme"
 			]
 		}
 	]

@@ -5,7 +5,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'NGTO前端笔记',
+  title: '笔记',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -39,6 +39,9 @@ module.exports = {
       },
       {
         text: '笔记', link: '/note/'
+      },
+      {
+        text: '工具', link: '/tool/'
       },
       {
         "text": "JavaScript",

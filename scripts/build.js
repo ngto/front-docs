@@ -6,7 +6,11 @@ function buildSideBar () {
   let sidebar = {}, navBar = [];
   const files = readdir('./docs');
   files.map((file) => {
-    let childFiles = readdir(`./docs/${file}`).reverse();
+    let childFiles = readdir(`./docs/${file}`);
+
+    childFiles = childFiles.map(item => {
+      return item.replace('.md', '')
+    }).sort(function (a, b) { return a - b });
     let sideTpl = {
       "title": file,
       "collapsable": true,
@@ -27,7 +31,7 @@ function buildSideBar () {
 
 // 读取文件夹/文件数组
 function readdir (filePath) {
-  return fs.readdirSync(filePath).filter(function (f) { return !excludeFile.includes(f) }).reverse();
+  return fs.readdirSync(filePath).filter(function (f) { return !excludeFile.includes(f) });
 }
 
 buildSideBar()
