@@ -5,7 +5,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: '笔记',
+  title: 'ngto个人笔记',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -44,16 +44,24 @@ module.exports = {
         text: '工具', link: '/tool/'
       },
       {
+        "text": "Html",
+        "link": "/html/"
+      },
+      {
         "text": "JavaScript",
         "link": "/javascript/"
       },
       {
-        "text": "Http",
-        "link": "/http/"
-      },
-      {
         "text": "Css",
         "link": "/css/"
+      },
+      {
+        "text": "Webpack",
+        "link": "/webpack/"
+      },
+      {
+        "text": "Http",
+        "link": "/http/"
       }
     ],
     sidebar: { ...headers }

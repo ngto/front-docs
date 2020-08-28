@@ -24,8 +24,8 @@ const SERVER_LIST = [
     domain: 'front-docs.ngto.top',// 域名
     host: '47.104.216.85',// ip
     port: 22,// 端口
-    username: 'ngto921210@.', // 登录服务器的账号
-    password: '',// 登录服务器的密码
+    username: 'root', // 登录服务器的账号
+    password: 'ngto921210@.',// 登录服务器的密码
     path: '/docker/nginx/html/front-docs'// 发布至静态服务器的项目路径
   }
 ];

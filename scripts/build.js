@@ -7,7 +7,6 @@ function buildSideBar () {
   const files = readdir('./docs');
   files.map((file) => {
     let childFiles = readdir(`./docs/${file}`);
-
     childFiles = childFiles.map(item => {
       return item.replace('.md', '')
     }).sort(function (a, b) { return a - b });
