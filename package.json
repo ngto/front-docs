@@ -10,8 +10,8 @@
   "repository": "/front-docs",
   "scripts": {
     "docs": "node scripts/build",
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "dev": "yarn docs && vuepress dev docs",
+    "build": "yarn docs && vuepress build docs",
     "deploy:dev": "npm run build && cross-env NODE_ENV=dev node ./deploy",
     "deploy:prod": "npm run build && cross-env NODE_ENV=prod node ./deploy"
   },
