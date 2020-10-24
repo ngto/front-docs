@@ -1,1 +1,6 @@
-# html
+# HTML
+
+​		HTML称为[超文本](https://baike.baidu.com/item/超文本/2832422)标记语言，是一种标识性的语言。它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的[Internet](https://baike.baidu.com/item/Internet/272794)资源连接为一个逻辑整体。HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明[文字](https://baike.baidu.com/item/文字/612910)，[图形](https://baike.baidu.com/item/图形/773307)、[动画](https://baike.baidu.com/item/动画/206564)、[声音](https://baike.baidu.com/item/声音/33686)、[表格](https://baike.baidu.com/item/表格/3371820)、[链接](https://baike.baidu.com/item/链接/2665501)等
+
+​		超文本是一种组织信息的方式，它通过超级链接方法将文本中的文字、图表与其他信息媒体相关联。这些相互关联的信息媒体可能在同一文本中，也可能是其他文件，或是地理位置相距遥远的某台计算机上的文件。这种组织信息方式将分布在不同位置的信息资源用随机方式进行连接，为人们查找，检索信息提供方便。
+

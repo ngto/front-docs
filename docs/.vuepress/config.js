@@ -60,6 +60,10 @@ module.exports = {
         "link": "/webpack/"
       },
       {
+        "text": "Docker",
+        "link": "/docker/"
+      },
+      {
         "text": "Git",
         "link": "/git/"
       },

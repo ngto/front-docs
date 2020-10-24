@@ -1,39 +1,117 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-  <!--<![endif]-->
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<style>
+			body {
+				background: #e5e5e5;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
 
-    <script>
-      function b() {
-        var myVar
-        console.log(myVar)
-      }
-      function a() {
-        var myVar = 2
-        console.log(myVar)
-        b()
-      }
-      var myVar = 1
-      console.log(myVar)
-      a()
-    </script>
-  </body>
+			.canvas_box {
+				width: 500px;
+				height: 500px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="canvas_box">
+			<canvas
+				id="myCanvas"
+				width="500"
+				height="500"
+				style="background:#000;"
+			></canvas>
+		</div>
+	</body>
+	<script>
+		(function() {
+			class MyCanvasT {
+				//获取基本参数
+				constructor() {
+					this.canvasDom = document.getElementById("myCanvas"); //获取画布
+					if (this.canvasDom.getContext)
+						this.context = this.canvasDom.getContext("2d"); //获取canvas 内容
+					this.centerX = this.canvasDom.width / 2; //获取画布宽度
+					this.centerY = this.canvasDom.height / 2; //获取画布高度
+					this.rad = (Math.PI * 2) / 100; //讲360度分成100分Math.PI表示圆的周长和直径比例
+					this.speed = 0; //控制加载度\
+					this.setWhiteCircle();
+				}
+				setText(n) {
+					//设置进度百分比文字
+					this.context.save();
+					this.context.beginPath();
+					this.context.strokeStyle = "#fff";
+					this.context.font = "30px Arial";
+					this.context.strokeText(
+						n + "%",
+						this.centerX - 25,
+						this.centerY + 10,
+					);
+					this.context.stroke();
+					this.context.closePath();
+					this.context.restore();
+				}
+				setWhiteCircle() {
+					//绘制白色圆
+					this.context.save();
+					this.context.lineWidth = 1;
+					this.context.strokeStyle = "#ccc";
+					this.context.beginPath();
+					this.context.arc(
+						this.centerX,
+						this.centerY,
+						100,
+						0,
+						Math.PI * 2,
+						false,
+					);
+					this.context.stroke();
+					this.context.closePath();
+					this.context.restore();
+				}
+
+				blueCircle(n) {
+					//绘制进度条
+					this.context.save();
+					this.context.beginPath();
+					this.context.lineWidth = 6;
+					this.context.strokeStyle = "#e5e5e5";
+					this.context.arc(
+						this.centerX,
+						this.centerY,
+						100,
+						-Math.PI / 2,
+						-Math.PI / 2 + n * this.rad,
+						false,
+					);
+					this.context.stroke();
+					this.context.closePath();
+					this.context.restore();
+				}
+			}
+			let myCanvasT = new MyCanvasT();
+			setInterval(() => {
+				myCanvasT.context.clearRect(
+					0,
+					0,
+					myCanvasT.canvasDom.width,
+					myCanvasT.canvasDom.height,
+				);
+				myCanvasT.setWhiteCircle();
+				myCanvasT.speed += 1;
+				myCanvasT.setText(myCanvasT.speed);
+				myCanvasT.blueCircle(myCanvasT.speed);
+				if (myCanvasT.speed == 100) myCanvasT.speed = 0;
+			}, 1000);
+		})();
+	</script>
 </html>

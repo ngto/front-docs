@@ -10,31 +10,12 @@
   </head>
   <body>
     <script>
-      // Promise.all
-      // Promise().rece
-
-      // function person () {
-
-      // }
-      // person.bind(() => {
-      //   console.log(123);
-      // })()
-
-      // function func() {
-      //   // return {}
-      // }
-      // let fun = new func()
-      // console.log(fun)
-      // var obj = {
-      //   b: {
-      //     c: () => {
-      //       console.log(this);
-      //     }
-      //   }
-      // }
-      // obj.b.c
-      let s1 = Symbol("another symbol")
-      console.log(typeof s1)
+      function func(params) {
+        return () => {
+          console.log(this)
+        }
+      }
+      var fun = new func()()
     </script>
   </body>
 </html>
